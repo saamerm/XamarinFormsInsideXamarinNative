@@ -34,6 +34,9 @@ namespace BlankNativeApp.iOS
                 //this.PresentViewControllerAsync(user, true);
                 //this.PresentViewControllerAsync(user2, true);
                 //this.PresentViewControllerAsync(nav, true);
+
+                // If you want to replace the RootViewController with a navigation controller,
+                // you can use this. It's useful after a login
                 appDelegate.Window.RootViewController = nav;
                 //var title = string.Format("{0} clicks!", count++);
                 //Button.SetTitle(title, UIControlState.Normal);
