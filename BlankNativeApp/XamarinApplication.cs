@@ -12,19 +12,19 @@ namespace BlankNativeApp
         public static void StaticOpenPage()
         {
             //
-            iOS.AppDelegate.PresentPage();
+            //iOS.AppDelegate.PresentPage();
         }
 
         public static void StaticClosePage()
         {
             //D
-            iOS.AppDelegate.PopPage();
+            //iOS.AppDelegate.PopPage();
         }
 
         public static void Push(Page page)
         {
             //D
-            iOS.AppDelegate.Push(page);
+            //iOS.AppDelegate.Push(page);
         }
 
         protected override void OnStart()
