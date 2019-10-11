@@ -41,7 +41,7 @@ namespace BlankNativeApp.Droid
             }
 
             SupportFragmentManager.BeginTransaction()
-            .Replace(Resource.Id.fragmentContainer, fragment, "TestPage")
+            .Replace(Resource.Id.fragmentContainer, fragment, "FormsPage")
             .Commit();
             Instance = this;
         }

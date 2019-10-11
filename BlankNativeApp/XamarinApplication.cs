@@ -8,13 +8,13 @@ namespace BlankNativeApp
         public static void PopPage()
         {
             IFormsNavigationService service = DependencyService.Get<IFormsNavigationService>();
-            service.PopPage();
+            Device.BeginInvokeOnMainThread(() => service.PopPage());
         }
 
         public static void PushPage(Page page)
         {
             IFormsNavigationService service = DependencyService.Get<IFormsNavigationService>();
-            service.PushPage(page);
+            Device.BeginInvokeOnMainThread(() => service.PushPage(page));
         }
     }
 }
