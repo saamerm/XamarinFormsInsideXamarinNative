@@ -175,7 +175,8 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestActivity.cs" />
-    <Compile Include="SecondTestActivity.cs" />
+    <Compile Include="FormsNavigationActivity.cs" />
+    <Compile Include="FormsNavigationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

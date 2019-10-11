@@ -14,16 +14,17 @@ namespace BlankNativeApp
             };
             var button1 = new Button()
             {
-                Text = "Native Open"
+                Text = "Open default page (TestPage)"
             };
             button1.Pressed += Button1_Pressed;
             var button2 = new Button()
             {
-                Text = "Native Close"
+                Text = "Open SecondTestPage"
             };
+            button2.Pressed += Button2_Pressed;
             var button3 = new Button()
             {
-                Text = "Open"
+                Text = "Open ThirdTestPage"
             };
             button3.Pressed += Button3_Pressed;
             var button4 = new Button()
@@ -46,20 +47,20 @@ namespace BlankNativeApp
 
         private void Button2_Pressed(object sender, System.EventArgs e)
         {
-            XamarinApplication.StaticClosePage();
+            XamarinApplication.Push(new SecondTestPage());
         }
 
         private void Button1_Pressed(object sender, System.EventArgs e)
         {
-            XamarinApplication.StaticOpenPage();
+            XamarinApplication.StaticOpenPage(new TestPage());
             // PopAsync(this), RemovePage(this), PopToRootAsync is not supported globally on iOS, please use a NavigationPage. For PopModalAsync(true), error was Index was out of range
-            //await Application.Current.MainPage.Navigation.PopModalAsync(true);
-            //Application.ClosePage();
+            //await Application.Current.MainPage.Navigation.PopModalAsync(true); or even            //Application.ClosePage();
         }
-        private async void Button3_Pressed(object sender, System.EventArgs e)
+        private void Button3_Pressed(object sender, System.EventArgs e)
         {
-            //await Navigation.PushAsync(new SecondTestPage()); // Didnt Work because is not supported globally on iOS
-            XamarinApplication.Push(new SecondTestPage());
+            //await Navigation.PushAsync(new SecondTestPage());
+            // Didnt Work because is not supported globally on iOS
+            XamarinApplication.Push(new ThirdTestPage());
         }
 
         private void Button4_Pressed(object sender, System.EventArgs e)

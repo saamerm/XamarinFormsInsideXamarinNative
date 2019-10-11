@@ -35,7 +35,7 @@ namespace BlankNativeApp.Droid
             Button button2 = FindViewById<Button>(Resource.Id.myButton2);
             button2.Click += Button2_Click;
             button.Click += delegate {
-                StartActivity(typeof(SecondTestActivity));
+                StartActivity(typeof(FormsNavigationActivity));
             };
         }
 

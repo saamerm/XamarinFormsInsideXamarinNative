@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="TestViewController.cs" />
     <Compile Include="AppNavigationController.cs" />
+    <Compile Include="FormsNavigationService.cs" />
   </ItemGroup>
   <Import Project="..\BlankNativeApp.projitems" Label="Shared" Condition="Exists('..\BlankNativeApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

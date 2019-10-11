@@ -3,44 +3,18 @@ using Xamarin.Forms;
 
 namespace BlankNativeApp
 {
-    public class XamarinApplication : Application
+    public class XamarinApplication
     {
-        public XamarinApplication()
+        public static void PopPage()
         {
-            MainPage = new NavigationPage(new TestPage());
-        }
-        public static void StaticOpenPage()
-        {
-            //
-            //iOS.AppDelegate.PresentPage();
+            IFormsNavigationService service = DependencyService.Get<IFormsNavigationService>();
+            service.PopPage();
         }
 
-        public static void StaticClosePage()
+        public static void PushPage(Page page)
         {
-            //D
-            //iOS.AppDelegate.PopPage();
+            IFormsNavigationService service = DependencyService.Get<IFormsNavigationService>();
+            service.PushPage(page);
         }
-
-        public static void Push(Page page)
-        {
-            //D
-            //iOS.AppDelegate.Push(page);
-        }
-
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
-
     }
 }

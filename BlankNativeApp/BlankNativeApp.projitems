@@ -14,5 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SecondTestPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IFormsNavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThirdTestPage.cs" />
   </ItemGroup>
 </Project>
