@@ -17,15 +17,10 @@ namespace BlankNativeApp.Droid
         public void PopPage()
         {
             var activity = FormsNavigationActivity.Instance;
-
-            // One way of doing it using removal of activities
-            activity.Finish();
-            // Does not work occasionally from some testing. Although back button always workd
-
-            // Second way of doing it using the Fragments:
-            //var supportFragmentManager = activity.SupportFragmentManager;
-            //supportFragmentManager.PopBackStack();
-            //supportFragmentManager.PopBackStackImmediate();
+            if (activity.SupportFragmentManager.BackStackEntryCount > 1)
+                activity.SupportFragmentManager.PopBackStackImmediate();
+            else
+                activity.Finish();
         }
 
         public void PushPage(Page page)
@@ -33,17 +28,29 @@ namespace BlankNativeApp.Droid
             var activity = FormsNavigationActivity.Instance;
 
             // One way of doing it using new activities
-            var pageName = page.ToString();
-            var intent = new Intent(activity, typeof(FormsNavigationActivity));
-            intent.PutExtra("PageName", pageName);
-            activity.StartActivity(intent);
+            //var pageName = page.ToString();
+            //var intent = new Intent(activity, typeof(FormsNavigationActivity));
+            //intent.PutExtra("PageName", pageName);
+            //activity.StartActivity(intent);
 
             // Second way of trying to do it, with fragments
+            Android.Support.V4.App.Fragment fragment;
+            if (page is ContentPage contentPage)
+                fragment = PageExtensions.CreateSupportFragment(contentPage, activity);
+            else
+                fragment = new ThirdTestPage().CreateSupportFragment(activity);
+            activity.SupportFragmentManager.BeginTransaction()
+                .Replace(Resource.Id.fragmentContainer, fragment, page.ToString()).AddToBackStack(null)
+                .Commit();
+
+            // Third try
             //var fragment = new ThirdTestPage().CreateSupportFragment(activity);
-            //var supportFragmentManager = activity.SupportFragmentManager;
-            //supportFragmentManager.BeginTransaction()
-            //    .Add(fragment, "FormsPage")//.AddToBackStack("FormsPage")
-            //    .Commit();
+            //activity.SupportFragmentManager().beginTransaction()
+            //             .replace(R.id.Layout_container, nextFrag, "findThisFragment")
+            //             .addToBackStack(null)
+            //             .commit();
+
+
         }
     }
 }

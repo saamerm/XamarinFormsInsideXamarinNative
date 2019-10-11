@@ -26,9 +26,9 @@ namespace BlankNativeApp
             Content = stack;
         }
 
-        private async void Button_Pressed(object sender, EventArgs e)
+        private void Button_Pressed(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            XamarinApplication.PopPage();
         }
     }
 }
