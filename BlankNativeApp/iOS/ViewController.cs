@@ -21,7 +21,8 @@ namespace BlankNativeApp.iOS
             Button.AccessibilityIdentifier = "myButton";
             //var user = new TestViewController();
             //user.View.BackgroundColor = UIColor.Blue;
-            var user2 = new TestPage().CreateViewController();
+            var user2 = XamarinApplication.ReturnPage().CreateViewController();
+            //var user2 = new TestPage().CreateViewController();
             user2.View.BackgroundColor = UIColor.Blue;
 
             // wrap your VC inside a Nav controller

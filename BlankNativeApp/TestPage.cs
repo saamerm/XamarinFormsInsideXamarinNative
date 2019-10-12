@@ -52,7 +52,8 @@ namespace BlankNativeApp
 
         private void Button1_Pressed(object sender, System.EventArgs e)
         {
-            XamarinApplication.PushPage(new TestPage());
+            //XamarinApplication.PushPage(new TestPage());
+            Application.Current.MainPage.Navigation.PushAsync(new TestPage());
             // PopAsync(this), RemovePage(this), PopToRootAsync is not supported globally on iOS, please use a NavigationPage. For PopModalAsync(true), error was Index was out of range
             //await Application.Current.MainPage.Navigation.PopModalAsync(true); or even            //Application.ClosePage();
         }
