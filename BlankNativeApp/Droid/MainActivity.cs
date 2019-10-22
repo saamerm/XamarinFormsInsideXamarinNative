@@ -24,6 +24,8 @@ namespace BlankNativeApp.Droid
             // Get our button from the layout resource,
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.myButton);
+
+            // button2 is just used 
             Button button2 = FindViewById<Button>(Resource.Id.myButton2);
             button2.Visibility = Android.Views.ViewStates.Gone;
             button.Click += delegate {

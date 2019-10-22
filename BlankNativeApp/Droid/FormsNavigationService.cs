@@ -27,13 +27,6 @@ namespace BlankNativeApp.Droid
         {
             var activity = FormsNavigationActivity.Instance;
 
-            // One way of doing it using new activities
-            //var pageName = page.ToString();
-            //var intent = new Intent(activity, typeof(FormsNavigationActivity));
-            //intent.PutExtra("PageName", pageName);
-            //activity.StartActivity(intent);
-
-            // Second way of trying to do it, with fragments
             Android.Support.V4.App.Fragment fragment;
             if (page is ContentPage contentPage)
                 fragment = PageExtensions.CreateSupportFragment(contentPage, activity);
@@ -42,15 +35,16 @@ namespace BlankNativeApp.Droid
             activity.SupportFragmentManager.BeginTransaction()
                 .Replace(Resource.Id.fragmentContainer, fragment, page.ToString()).AddToBackStack(null)
                 .Commit();
+        }
+        public void PushPageToActivity(Page page)
+        {
+            var activity = FormsNavigationActivity.Instance;
 
-            // Third try
-            //var fragment = new ThirdTestPage().CreateSupportFragment(activity);
-            //activity.SupportFragmentManager().beginTransaction()
-            //             .replace(R.id.Layout_container, nextFrag, "findThisFragment")
-            //             .addToBackStack(null)
-            //             .commit();
-
-
+            // One way of doing it using new activities
+            var pageName = page.ToString();
+            var intent = new Intent(activity, typeof(FormsNavigationActivity));
+            intent.PutExtra("PageName", pageName);
+            activity.StartActivity(intent);
         }
     }
 }

@@ -5,6 +5,11 @@ namespace BlankNativeApp
 {
     public class XamarinApplication
     {
+        public static Page ReturnPage()
+        {
+            return new NavigationPage(new TestPage());
+        }
+
         public static void PopPage()
         {
             IFormsNavigationService service = DependencyService.Get<IFormsNavigationService>();
